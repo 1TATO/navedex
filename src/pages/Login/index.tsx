@@ -1,15 +1,24 @@
+import { useCallback } from 'react';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+
+import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
 
 import logoImg from '../../assets/logo.svg';
 
 import { Container, Content } from './styles';
-import { useCallback } from 'react';
+
+interface SignInFormData {
+  email: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
-  const handleSubmit = useCallback(async (data: object) => {
+  const { signIn } = useAuth();
+
+  const handleSubmit = useCallback(async (data: SignInFormData) => {
     try {
       const schema = Yup.object().shape({
         email: Yup.string().required('Email obrigatório').email('Digite um e-mail válido'),
@@ -19,10 +28,15 @@ const Login: React.FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      signIn({
+        email: data.email,
+        password: data.password,
+      });
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [signIn]);
 
   return (
     <Container>
