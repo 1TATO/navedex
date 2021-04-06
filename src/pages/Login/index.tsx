@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { Form } from '@unform/web';
+import { useHistory } from 'react-router';
 import * as Yup from 'yup';
 
 import { useAuth } from '../../hooks/AuthContext';
@@ -17,6 +18,7 @@ interface SignInFormData {
 
 const Login: React.FC = () => {
   const { signIn } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
     try {
@@ -33,10 +35,12 @@ const Login: React.FC = () => {
         email: data.email,
         password: data.password,
       });
+
+      history.push('/dashboard');
     } catch (err) {
       console.log(err);
     }
-  }, [signIn]);
+  }, [signIn, history]);
 
   return (
     <Container>
