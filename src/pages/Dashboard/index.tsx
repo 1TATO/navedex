@@ -1,5 +1,6 @@
 import Header from '../../components/Header';
 import NaverCard from '../../components/NaverCard';
+import Button from '../../components/Button';
 
 import { Container, Content, ContentHeader, NaverCardContent } from './styles';
 
@@ -12,9 +13,9 @@ const Dashboard: React.FC = () => {
         <ContentHeader>
           <h1>Navers</h1>
 
-          <button>
+          <Button>
             Adicionar Naver
-          </button>
+          </Button>
         </ContentHeader>
 
         <NaverCardContent>
