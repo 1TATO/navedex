@@ -36,21 +36,6 @@ export const Content = styled.div`
     max-width: 100%;
     width: 400px;
 
-    label {
-      font-weight: 600;
-      font-size: 1.14rem;
-    }
-
-    input {
-      height: 2.5rem;
-      padding: 0 0.5rem;
-
-      margin-top: 0.25rem;
-
-      border: 1px solid var(--black);
-      background: var(--background);
-    }
-
     button {
       margin-top: 2rem;
       padding: 0.5rem;
