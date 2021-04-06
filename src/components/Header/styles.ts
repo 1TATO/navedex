@@ -7,6 +7,10 @@ export const Container = styled.header`
   img {
     height: 80%;
     max-width: 80%;
+
+    @media (max-width: 500px) {
+      width: 40%;
+    }
   }
 
   button {
