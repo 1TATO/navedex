@@ -1,3 +1,5 @@
+import { useHistory } from 'react-router-dom';
+
 import Header from '../../components/Header';
 import NaverCard from '../../components/NaverCard';
 import Button from '../../components/Button';
@@ -5,6 +7,12 @@ import Button from '../../components/Button';
 import { Container, Content, ContentHeader, NaverCardContent } from './styles';
 
 const Dashboard: React.FC = () => {
+  const history = useHistory();
+
+  function handleCreateNewNaver() {
+    history.push('/create')
+  }
+
   return (
     <Container>
       <Header />
@@ -13,7 +21,7 @@ const Dashboard: React.FC = () => {
         <ContentHeader>
           <h1>Navers</h1>
 
-          <Button>
+          <Button onClick={handleCreateNewNaver}>
             Adicionar Naver
           </Button>
         </ContentHeader>

@@ -40,7 +40,7 @@ const NaverProfileModal: React.FC<NaverProfileModalProps> = ({
     const daysBetween = intervalToDuration({start: Date.now(), end: new Date(admission_date)});
 
     if (daysBetween.years === 0) {
-      return `${daysBetween.months} meses`;
+      return `${daysBetween.months} mes(es)`;
     }
 
     if (daysBetween.months === 0) {
