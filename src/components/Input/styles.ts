@@ -20,6 +20,5 @@ export const Container = styled.div`
     margin-top: 0.25rem;
 
     border: 1px solid var(--black);
-    background: var(--background);
   }
 `;

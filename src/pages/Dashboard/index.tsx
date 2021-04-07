@@ -20,10 +20,6 @@ const Dashboard: React.FC = () => {
 
         <NaverCardContent>
           <NaverCard />
-          <NaverCard />
-          <NaverCard />
-          <NaverCard />
-          <NaverCard />
         </NaverCardContent>
       </Content>
     </Container>
