@@ -1,9 +1,19 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import NaverProfileModal from "../components/NaverProfileModal";
 
+interface NaverProps {
+  id: string;
+  name: string;
+  job_role: string;
+  admission_date: string;
+  birthdate: string;
+  project: string;
+  url: string;
+}
+
 interface ProfileModalContextData {
   isModalOpen: boolean;
-  handleOpenProfileModal: () => void;
+  handleOpenProfileModal: (data: NaverProps) => void;
   handleCloseProfileModal: () => void;
 }
 
@@ -11,9 +21,11 @@ const ProfileModalContext = createContext({} as ProfileModalContextData);
 
 const ProfileModalProvider: React.FC = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [naverData, setNaverData] = useState({} as NaverProps);
 
-  const handleOpenProfileModal = useCallback(() => {
+  const handleOpenProfileModal = useCallback((data: NaverProps) => {
     setIsModalOpen(true);
+    setNaverData(data);
   }, []);
 
   const handleCloseProfileModal = useCallback(() => {
@@ -25,7 +37,9 @@ const ProfileModalProvider: React.FC = ({ children }) => {
       {children}
 
       {isModalOpen && (
-        <NaverProfileModal />
+        <NaverProfileModal
+          data={naverData}
+        />
       )};
     </ProfileModalContext.Provider>
   );
