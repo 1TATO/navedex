@@ -1,11 +1,14 @@
 import { AuthProvider } from "./AuthContext";
 import { NaverProvider } from "./NaverContext";
+import { ProfileModalProvider } from "./ProfileModalContext";
 
 const AppProvider: React.FC = ({ children }) => (
   <AuthProvider>
-    <NaverProvider>
-      {children}
-    </NaverProvider>
+    <ProfileModalProvider>
+      <NaverProvider>
+        {children}
+      </NaverProvider>
+    </ProfileModalProvider>
   </AuthProvider>
 );
 

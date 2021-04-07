@@ -15,7 +15,7 @@ interface NaverContextData {
   navers: Naver[];
 }
 
-export const NaversContext = createContext({} as NaverContextData);
+const NaversContext = createContext({} as NaverContextData);
 
 const NaverProvider: React.FC = ({ children }) => {
   const [navers, setNavers] = useState<Naver[]>([]);
@@ -26,7 +26,7 @@ const NaverProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <NaversContext.Provider value={ {navers} }>
+    <NaversContext.Provider value={{ navers }}>
       {children}
     </NaversContext.Provider>
   );
