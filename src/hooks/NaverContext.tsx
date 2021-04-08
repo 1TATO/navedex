@@ -20,7 +20,17 @@ type CreateNaver = Omit<Naver, 'id'>;
 interface NaverContextData {
   navers: Naver[];
   createNaver: (data: CreateNaver) => Promise<void>;
+  deleteNaver: (id: string) => Promise<void>;
 };
+
+interface AlertModalProps {
+  title: string;
+  description: string;
+  hasButtons?: boolean;
+  hasCloseButton?: boolean;
+  onConfirmAction?: () => void | Promise<void>;
+  onCloseAction?: () => void | Promise<void>;
+}
 
 const NaversContext = createContext({} as NaverContextData);
 
@@ -73,8 +83,45 @@ const NaverProvider: React.FC = ({ children }) => {
     [history, handleOpenAlertModal],
   );
 
+  const confirmDelete = useCallback(
+    async (id: string): Promise<void> => {
+      try {
+        await api.delete(`/navers/${id}`);
+
+        handleOpenAlertModal({
+          title: 'Naver excluído',
+          description: 'Naver excluído com sucesso!',
+        });
+
+        setNavers(navers => navers.filter(naver => naver.id !== id));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [handleOpenAlertModal],
+  );
+
+  const deleteNaver = useCallback(
+    async (id: string): Promise<void> => {
+      try {
+        handleOpenAlertModal({
+          title: 'Excluir Naver',
+          description: 'Tem certeza que deseja excluir este Naver?',
+          hasCloseButton: false,
+          hasButtons: true,
+          onConfirmAction: () => {
+            confirmDelete(id);
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [handleOpenAlertModal, confirmDelete],
+  );
+
   return (
-    <NaversContext.Provider value={{ navers, createNaver }}>
+    <NaversContext.Provider value={{ navers, createNaver, deleteNaver }}>
       {children}
     </NaversContext.Provider>
   );

@@ -1,6 +1,7 @@
+import { useCallback } from 'react';
+
 import { useNaver } from '../../hooks/NaverContext';
 import { useProfileModal } from '../../hooks/ProfileModalContext';
-import { useAlertModal } from '../../hooks/AlertModalContext';
 
 import deleteImg from '../../assets/delete.svg';
 import editImg from '../../assets/edit.svg';
@@ -20,20 +21,15 @@ interface NaverData {
 const NaverCard: React.FC = () => {
   const { navers } = useNaver();
   const { handleOpenProfileModal } = useProfileModal();
-  const { handleOpenAlertModal } = useAlertModal();
+  const { deleteNaver } = useNaver();
 
-  function onClickOpenProfileModal(naver: NaverData) {
+  const onClickOpenProfileModal = useCallback((naver: NaverData) => {
     handleOpenProfileModal(naver);
-  };
+  }, [handleOpenProfileModal]);
 
-  function onClickDeleteNaver() {
-    handleOpenAlertModal({
-      title: 'Excluir Naver',
-      description: 'Tem certeza que deseja excluir esse Naver?',
-      hasCloseButton: false,
-      hasButtons: true,
-    });
-  };
+  const handleDelete = useCallback((id: string) => {
+    deleteNaver(id);
+  }, [deleteNaver]);
 
   return (
     <>
@@ -45,7 +41,7 @@ const NaverCard: React.FC = () => {
           <span>{naver.job_role}</span>
 
           <div>
-            <img src={deleteImg} alt="Deletar Naver" onClick={() => onClickDeleteNaver()} />
+            <img src={deleteImg} alt="Deletar Naver" onClick={() => handleDelete(naver.id)} />
             <img src={editImg} alt="Editar Naver" />
           </div>
         </Container>

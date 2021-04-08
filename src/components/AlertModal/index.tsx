@@ -6,6 +6,7 @@ import Button from '../Button';
 import closeImg from '../../assets/close.svg';
 
 import { Container } from './styles';
+import { useNaver } from '../../hooks/NaverContext';
 
 Modal.setAppElement('#root');
 
@@ -14,10 +15,19 @@ interface AlertModalProps {
   description: string;
   hasButtons?: boolean;
   hasCloseButton?: boolean;
-}
+  onConfirmAction?: () => void | Promise<void>;
+  onCloseAction?: () => void | Promise<void>;
+};
 
-const AlertModal: React.FC<AlertModalProps> = ({ title, description }: AlertModalProps) => {
-  const { isModalOpen, handleCloseAlertModal, hasCloseButton, hasButtons } = useAlertModal();
+interface AlertProps {
+  data: AlertModalProps;
+};
+
+const AlertModal: React.FC<AlertProps> = ({
+  data: { title, description, hasButtons, hasCloseButton, onConfirmAction }
+}) => {
+  const { isModalOpen, handleCloseAlertModal } = useAlertModal();
+  const { deleteNaver } = useNaver();
 
   return (
     <Modal
@@ -26,7 +36,7 @@ const AlertModal: React.FC<AlertModalProps> = ({ title, description }: AlertModa
       overlayClassName="alert-modal-overlay"
       className="alert-modal-content"
     >
-      <Container hasCloseButton={hasCloseButton} hasButtons={hasButtons} >
+      <Container hasCloseButton hasButtons>
         {hasCloseButton && (
           <img src={closeImg} alt="Fechar" onClick={handleCloseAlertModal} />
         )}
@@ -41,7 +51,7 @@ const AlertModal: React.FC<AlertModalProps> = ({ title, description }: AlertModa
             <Button color="white" onClick={handleCloseAlertModal}>
               Cancelar
             </Button>
-            <Button>
+            <Button onClick={onConfirmAction}>
               Excluir
             </Button>
           </>
