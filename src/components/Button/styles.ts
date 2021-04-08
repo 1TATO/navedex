@@ -9,6 +9,18 @@ export const Container = styled.button`
 
   font-weight: 600;
 
+  @media (max-width: 950px) {
+    width: 25%;
+  }
+
+  @media (max-width: 600px) {
+    width: 45%;
+  }
+
+  @media (max-width: 400px) {
+    width: 55%;
+  }
+
   ${props => props.color === 'white'
     ? css`
         background: var(--background);

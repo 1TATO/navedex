@@ -81,7 +81,6 @@ export const NaverInfo = styled.div`
       @media (max-width: 800px) {
         height: 1.5rem;
         width: 1.5rem;
-
       }
     }
   }

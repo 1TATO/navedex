@@ -25,6 +25,8 @@ export const Container = styled.div<AlertModalProps>`
   div {
     height: 10rem;
 
+    
+
     h1 {
       font-size: 2rem;
       margin-bottom: 2.5rem;
@@ -42,8 +44,17 @@ export const Container = styled.div<AlertModalProps>`
         right: 22rem;
         width: 35%;
 
+        @media (max-width: 560px) {
+          right: 15em;
+          width: 30%;
+        }
+
+        @media (max-width: 400px) {
+          right: 12em;
+          width: 30%;
+        }
+
         & + button {
-          margin-left: 2rem;
           right: 3rem;
         }
       }

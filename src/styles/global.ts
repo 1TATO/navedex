@@ -56,6 +56,7 @@ export default createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 1.5rem;
   }
   
   .naver-profile-modal-content {
@@ -81,8 +82,8 @@ export default createGlobalStyle`
     position: relative;
     border-radius: 0.25rem;
 
-    /* @media (max-width: 800px) {
-      height: 90%;
-    } */
+    @media (max-width: 560px) {
+      height: 18rem;
+    }
   }
 `;

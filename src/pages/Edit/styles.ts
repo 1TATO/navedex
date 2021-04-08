@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   padding: 3rem;
+
+  @media (max-width: 500px) {
+    padding: 1rem;
+  }
 `;
 
 export const FormContainer = styled.div`
