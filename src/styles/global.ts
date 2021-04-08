@@ -45,7 +45,8 @@ export default createGlobalStyle`
     }
   }
 
-  .naver-profile-modal-overlay {
+  .naver-profile-modal-overlay,
+  .alert-modal-overlay {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -69,5 +70,19 @@ export default createGlobalStyle`
     @media (max-width: 800px) {
       height: 90%;
     }
+  }
+
+  .alert-modal-content {
+    width: 100%;
+    max-width: 50rem;
+    height: 30%;
+    background: var(--background);
+    padding: 2rem;
+    position: relative;
+    border-radius: 0.25rem;
+
+    /* @media (max-width: 800px) {
+      height: 90%;
+    } */
   }
 `;
