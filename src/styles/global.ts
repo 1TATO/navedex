@@ -16,6 +16,9 @@ export default createGlobalStyle`
     --black: #212121;
     --background: #E5E5E5;
     --error: #C53030;
+    --toast-success: #E6FFFA;
+    --toast-success-color: #2E656A;
+    --toast-error: #FDDEDE;
   }
 
   * {

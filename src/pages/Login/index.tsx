@@ -11,6 +11,7 @@ import Input from '../../components/Input';
 import logoImg from '../../assets/logo.svg';
 
 import { Container, Content } from './styles';
+import { useToast } from '../../hooks/ToastContext';
 
 interface SignInFormData {
   email: string;
@@ -20,6 +21,7 @@ interface SignInFormData {
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { signIn } = useAuth();
+  const { addToast } = useToast();
   const history = useHistory();
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
@@ -33,9 +35,14 @@ const Login: React.FC = () => {
         abortEarly: false,
       });
 
-      signIn({
+      await signIn({
         email: data.email,
         password: data.password,
+      });
+
+      addToast({
+        title: 'Login com sucesso',
+        description: 'Seu login ocorreu com sucesso',
       });
 
       history.push('/dashboard');
@@ -46,8 +53,14 @@ const Login: React.FC = () => {
         email: ' ',
         password: ' ',
       });
+
+      addToast({
+        type: 'error',
+        title: 'Erro na autenticação',
+        description: 'Ocorreu um erro ao fazer login, cheque as credenciais',
+      });
     }
-  }, [signIn, history]);
+  }, [signIn, history, addToast]);
 
   return (
     <Container>
