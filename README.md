@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <div>
+    <img alt="Nave.rs" title="Nave.rs" src="https://github.com/1TATO/navedex/blob/master/src/assets/logo.svg" width="200px" />
+  </div>
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://www.linkedin.com/in/jose-neto-255862180//">
+    <img alt="Made by JoséNeto" src="https://img.shields.io/badge/made%20by-JoséNeto-%2304D361">
+  </a>
+  
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/1TATO/navedex.svg">
+  
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/1TATO/navedex.svg">
+  
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <a href="https://github.com/1TATO/navedex/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/1TATO/navedex?style=social">
+  </a>
+</p>
 
-## Available Scripts
+<p align="center">
+  <a href="#computer-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-Technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#label-Layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-How-To-Use">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-In the project directory, you can run:
+</br>
 
-### `yarn start`
+## :computer: Project
+Schedule and manage appointments in barber shops.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :rocket: Technologies
+- [Typescript](https://www.typescriptlang.org)
+- [ReactJS](https://reactjs.org/)
+- [UUID](https://github.com/uuidjs/uuid)
+- [date-fns](https://github.com/date-fns/date-fns)
+- [Yup](https://github.com/jquense/yup)
+- [Unform](https://github.com/unform/unform)
+- [Styled-components](https://github.com/styled-components/styled-components)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :label: Layout
+- Find the Figma layout [here](https://www.figma.com/file/II8UDFm2uJFZaD0FOPcinP/Teste-Front-End)
 
-### `yarn test`
+## :information_source: How To Use
+From your command line:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Front-end
+```bash
+# Clone this repository
+$ git clone https://github.com/1TATO/Go-Barber.git
 
-### `yarn build`
+# Go into the repository
+$ cd Go-Barber
+$ cd front-end
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Install dependencies
+$ yarn install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Start server
+$ yarn start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# server running on port 3000
+```
 
-### `yarn eject`
+## :memo: License
+This project is under the MIT license. See the [LICENSE](https://github.com/1TATO/navedex/blob/master/LICENSE) for more information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+Made with ♥ by José Neto :wave: [Get in touch!](https://www.linkedin.com/in/jose-netopr/)
