@@ -2,12 +2,14 @@ import Modal from 'react-modal';
 import { intervalToDuration } from 'date-fns';
 
 import { useProfileModal } from "../../hooks/ProfileModalContext";
+import { useNaver } from '../../hooks/NaverContext';
 
 import deleteImg from '../../assets/delete.svg';
 import editImg from '../../assets/edit.svg';
 
 import { Container, NaverInfo } from './styles';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useHistory } from 'react-router';
 
 Modal.setAppElement('#root');
 
@@ -26,9 +28,11 @@ interface NaverProfileModalProps {
 }
 
 const NaverProfileModal: React.FC<NaverProfileModalProps> = ({
-    data: { name, job_role, birthdate, admission_date, project, url }
+    data: { id, name, job_role, birthdate, admission_date, project, url }
   }) => {
   const { isModalOpen, handleCloseProfileModal } = useProfileModal();
+  const { deleteNaver } = useNaver();
+  const history = useHistory();
 
   const formattedBirthday = useMemo(() => {
     const daysBetween = intervalToDuration({start: Date.now(), end: new Date(birthdate)});
@@ -49,6 +53,15 @@ const NaverProfileModal: React.FC<NaverProfileModalProps> = ({
 
     return `${daysBetween.years} ano(s) e ${daysBetween.months} meses`;
   }, [admission_date]);
+
+  const handleDelete = useCallback((id: string) => {
+    deleteNaver(id);
+  }, [deleteNaver]);
+
+  const handleEditNaver = useCallback(() => {
+    history.push(`/edit/${id}`);
+    handleCloseProfileModal();
+  }, [history, id, handleCloseProfileModal]);
 
   return (
     <Modal
@@ -74,8 +87,8 @@ const NaverProfileModal: React.FC<NaverProfileModalProps> = ({
           <span>{project}</span>
 
           <div>
-            <img src={deleteImg} alt="Deletar Naver" />
-            <img src={editImg} alt="Editar Naver" />
+            <img src={deleteImg} alt="Deletar Naver" onClick={() => handleDelete(id)} />
+            <img src={editImg} alt="Editar Naver" onClick={handleEditNaver} />
           </div>
         </NaverInfo>
       </Container>
