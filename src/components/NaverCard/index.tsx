@@ -30,7 +30,7 @@ const NaverCard: React.FC = () => {
     handleOpenAlertModal({
       title: 'Excluir Naver',
       description: 'Tem certeza que deseja excluir esse Naver?',
-      hasCloseButton: true, //fasdkjfaskljdflaksjdhfklasjhdflkajshdfkljahsdlkjfhaskljdhfklasjdhflaksjdhflaksjdhlk
+      hasCloseButton: false,
       hasButtons: true,
     });
   };

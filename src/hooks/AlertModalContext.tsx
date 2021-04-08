@@ -7,10 +7,6 @@ interface AlertModalContextData {
   handleCloseAlertModal: () => void;
   hasButtons: boolean;
   hasCloseButton: boolean;
-  // setTitle: string;
-  // setDescription: string;
-  // setHasCloseButton: boolean;
-  // setHasButtons: boolean;
 }
 
 interface DeleteAlertModal {

@@ -3,6 +3,7 @@ import { ptBR } from 'date-fns/locale';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import api from '../services/api';
+import { useAlertModal } from './AlertModalContext';
 
 interface Naver {
   id: string;
@@ -26,6 +27,8 @@ const NaversContext = createContext({} as NaverContextData);
 const NaverProvider: React.FC = ({ children }) => {
   const history = useHistory();
   const [navers, setNavers] = useState<Naver[]>([]);
+
+  const { handleOpenAlertModal } = useAlertModal();
 
   useEffect(() => {
     api.get('/navers')
@@ -55,12 +58,19 @@ const NaverProvider: React.FC = ({ children }) => {
 
         setNavers(navers => [...navers, naver]);
 
+        handleOpenAlertModal({
+          title: 'Naver criado',
+          description: 'Naver criado com sucesso!',
+          hasCloseButton: true,
+          hasButtons: false,
+        });
+
         history.push('/dashboard');
       } catch (error) {
         console.log(error);
       }
     },
-    [history],
+    [history, handleOpenAlertModal],
   );
 
   return (
