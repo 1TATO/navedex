@@ -6,7 +6,6 @@ import Button from '../Button';
 import closeImg from '../../assets/close.svg';
 
 import { Container } from './styles';
-import { useNaver } from '../../hooks/NaverContext';
 
 Modal.setAppElement('#root');
 
@@ -27,7 +26,6 @@ const AlertModal: React.FC<AlertProps> = ({
   data: { title, description, hasButtons, hasCloseButton, onConfirmAction }
 }) => {
   const { isModalOpen, handleCloseAlertModal } = useAlertModal();
-  const { deleteNaver } = useNaver();
 
   return (
     <Modal

@@ -40,7 +40,7 @@ const ProfileModalProvider: React.FC = ({ children }) => {
         <NaverProfileModal
           data={naverData}
         />
-      )};
+      )}
     </ProfileModalContext.Provider>
   );
 }

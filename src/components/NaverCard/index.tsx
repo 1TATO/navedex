@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useHistory } from 'react-router';
 
 import { useNaver } from '../../hooks/NaverContext';
 import { useProfileModal } from '../../hooks/ProfileModalContext';
@@ -19,6 +20,7 @@ interface NaverData {
 }
 
 const NaverCard: React.FC = () => {
+  const history = useHistory();
   const { navers } = useNaver();
   const { handleOpenProfileModal } = useProfileModal();
   const { deleteNaver } = useNaver();
@@ -31,6 +33,10 @@ const NaverCard: React.FC = () => {
     deleteNaver(id);
   }, [deleteNaver]);
 
+  const handleEdit = useCallback((id: string) => {
+    history.push(`/edit/${id}`)
+  }, [history]);
+
   return (
     <>
       {navers.map(naver => (
@@ -42,7 +48,7 @@ const NaverCard: React.FC = () => {
 
           <div>
             <img src={deleteImg} alt="Deletar Naver" onClick={() => handleDelete(naver.id)} />
-            <img src={editImg} alt="Editar Naver" />
+            <img src={editImg} alt="Editar Naver" onClick={() => handleEdit(naver.id)} />
           </div>
         </Container>
       ))}

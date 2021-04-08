@@ -14,8 +14,6 @@ interface AlertModalContextData {
   isModalOpen: boolean;
   handleOpenAlertModal: (data: AlertModalProps) => void;
   handleCloseAlertModal: () => void;
-  // hasButtons: boolean;
-  // hasCloseButton: boolean;
 };
 
 const AlertModalContext = createContext({} as AlertModalContextData);
@@ -23,18 +21,10 @@ const AlertModalContext = createContext({} as AlertModalContextData);
 const AlertModalProvider: React.FC = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [alertData, setAlertData] = useState({} as AlertModalProps)
-  // const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [hasButtons, setHasButtons] = useState(false);
-  // const [hasCloseButton, setHasCloseButton] = useState(false);
 
   const handleOpenAlertModal = useCallback((data: AlertModalProps) => {
     setIsModalOpen(true);
     setAlertData(data);
-    // setTitle(title);
-    // setDescription(description);
-    // setHasCloseButton(hasCloseButton);
-    // setHasButtons(hasButtons);
   }, []);
 
   const handleCloseAlertModal = useCallback(() => {
@@ -47,20 +37,14 @@ const AlertModalProvider: React.FC = ({ children }) => {
       isModalOpen,
       handleOpenAlertModal,
       handleCloseAlertModal,
-      // hasButtons,
-      // hasCloseButton
     }}>
       {children}
 
       {isModalOpen && (
         <AlertModal
           data={alertData}
-          // title={title}
-          // description={description}
-          // hasButtons={hasButtons}
-          // hasCloseButton={hasCloseButton}
         />
-      )};
+      )}
     </AlertModalContext.Provider>
   )
 };
