@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.main`
   width: 100%;
@@ -7,6 +18,8 @@ export const Container = styled.main`
   @media (max-width: 1100px) {
     padding: 1.5rem;
   }
+
+  animation: ${appearFromRight} 1s;
 `;
 
 export const Content = styled.div`
