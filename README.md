@@ -17,6 +17,10 @@
   <a href="https://github.com/1TATO/navedex/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/1TATO/navedex?style=social">
   </a>
+  
+  <div>
+    <img alt="Login" title="Login" src="https://github.com/1TATO/navedex/blob/master/github/login.jpg" width="1400px" />
+  </div>
 </p>
 
 <p align="center">
@@ -29,8 +33,55 @@
 
 </br>
 
+<h3 align="center">
+  <div>
+    <p>Dashboard</p>
+    <img alt="Dashboard" title="Dashboard" src="https://github.com/1TATO/navedex/blob/master/github/dashboard.jpg" width="700px" />
+  </div>
+  
+  </br>
+  </br>
+  
+  <div>
+    <p>Profile Modal</p>
+    <img alt="Profile Modal" title="Profile Modal" src="https://github.com/1TATO/navedex/blob/master/github/profileModal.jpg" width="700px" />
+  </div>
+  
+  </br>
+  </br>
+  
+  <div>
+    <p>Edit/Create</p>
+    <img alt="Edit/Create" title="Edit/Create" src="https://github.com/1TATO/navedex/blob/master/github/create-edit.jpg" width="700px" />
+  </div>
+  
+  </br>
+  </br>
+  
+  <div>
+    <p>Update Modal</p>
+    <img alt="Update Modal" title="Update Modal" src="https://github.com/1TATO/navedex/blob/master/github/updateModal.jpg" width="700px" />
+  </div>
+  
+  </br>
+  </br>
+  
+  <div>
+    <p>Delete Confirmation</p>
+    <img alt="Delete Confirmation" title="Delete Confirmation" src="https://github.com/1TATO/navedex/blob/master/github/confirmDelete.jpg" width="700px" />
+  </div>
+  
+  </br>
+  </br>
+  
+  <div>
+    <p>Deleted</p>
+    <img alt="Deleted" title="Deleted" src="https://github.com/1TATO/navedex/blob/master/github/deleted.jpg" width="700px" />
+  </div>
+</h3>
+
 ## :computer: Project
-Schedule and manage appointments in barber shops.
+This application list, create and edit navers. It has some navers informations, like: names, ages, roles, company time and projects naver have contributed.
 
 ## :rocket: Technologies
 - [Typescript](https://www.typescriptlang.org)
@@ -47,14 +98,12 @@ Schedule and manage appointments in barber shops.
 ## :information_source: How To Use
 From your command line:
 
-### Front-end
 ```bash
 # Clone this repository
-$ git clone https://github.com/1TATO/Go-Barber.git
+$ git clone https://github.com/1TATO/navedex.git
 
 # Go into the repository
-$ cd Go-Barber
-$ cd front-end
+$ cd navedex
 
 # Install dependencies
 $ yarn install
