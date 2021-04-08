@@ -1,5 +1,6 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 import { useHistory } from 'react-router';
 import * as Yup from 'yup';
 
@@ -17,6 +18,7 @@ interface SignInFormData {
 }
 
 const Login: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
   const { signIn } = useAuth();
   const history = useHistory();
 
@@ -39,6 +41,11 @@ const Login: React.FC = () => {
       history.push('/dashboard');
     } catch (err) {
       console.log(err);
+
+      formRef.current?.setErrors({
+        email: ' ',
+        password: ' ',
+      });
     }
   }, [signIn, history]);
 
@@ -47,7 +54,10 @@ const Login: React.FC = () => {
       <Content>
         <img src={logoImg} alt="Nave.rs" />
 
-        <Form onSubmit={handleSubmit}>
+        <Form
+          onSubmit={handleSubmit}
+          ref={formRef}
+        >
           <Input name="email" placeholder="E-mail" />
 
           <Input name="password" type="password" placeholder="Senha" />

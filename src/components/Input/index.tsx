@@ -9,7 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ children, name, ...rest }) => {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -20,9 +20,15 @@ const Input: React.FC<InputProps> = ({ children, name, ...rest }) => {
   }, [registerField, fieldName]);
   
   return (
-    <Container>
+    <Container isErrored={!!error}>
       <label>{rest.placeholder}</label>
-      <input defaultValue={defaultValue} ref={inputRef} {...rest} />
+      <input
+        defaultValue={defaultValue}
+        ref={inputRef}
+        {...rest}
+      />
+
+      {error}
     </Container>
   );
 }

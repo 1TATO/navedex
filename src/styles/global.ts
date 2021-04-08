@@ -1,9 +1,21 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
+
+const appearFromTop = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export default createGlobalStyle`
   :root {
     --black: #212121;
     --background: #E5E5E5;
+    --error: #C53030;
   }
 
   * {
@@ -71,6 +83,8 @@ export default createGlobalStyle`
     @media (max-width: 800px) {
       height: 90%;
     }
+
+    animation: ${appearFromTop} 1s;
   }
 
   .alert-modal-content {
@@ -85,5 +99,7 @@ export default createGlobalStyle`
     @media (max-width: 560px) {
       height: 18rem;
     }
+
+    animation: ${appearFromTop} 1s;
   }
 `;

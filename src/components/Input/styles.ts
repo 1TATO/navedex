@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  isErrored: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
 
@@ -20,5 +24,11 @@ export const Container = styled.div`
     margin-top: 0.25rem;
 
     border: 1px solid var(--black);
+
+    ${props => props.isErrored
+      && css`
+        border-color: var(--error);
+      `
+    }
   }
 `;
