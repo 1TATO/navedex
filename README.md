@@ -83,6 +83,12 @@
 ## :computer: Project
 This application list, create and edit navers. It has some navers informations, like: names, ages, roles, company time and projects naver have contributed.
 
+Login credentials:
+Email: jose@nave.rs
+Password: nave1234
+
+You can try this app on: https://tato-navedex.netlify.app
+
 ## :rocket: Technologies
 - [Typescript](https://www.typescriptlang.org)
 - [ReactJS](https://reactjs.org/)
