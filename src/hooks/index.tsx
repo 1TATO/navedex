@@ -5,13 +5,13 @@ import { ProfileModalProvider } from "./ProfileModalContext";
 
 const AppProvider: React.FC = ({ children }) => (
   <AuthProvider>
-    <ProfileModalProvider>
-      <AlertModalProvider>
-        <NaverProvider>
+    <AlertModalProvider>
+      <NaverProvider>
+        <ProfileModalProvider>
           {children}
-        </NaverProvider>
-      </AlertModalProvider>
-    </ProfileModalProvider>
+        </ProfileModalProvider>
+      </NaverProvider>
+    </AlertModalProvider>
   </AuthProvider>
 );
 

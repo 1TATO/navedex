@@ -56,7 +56,8 @@ const NaverProfileModal: React.FC<NaverProfileModalProps> = ({
 
   const handleDelete = useCallback((id: string) => {
     deleteNaver(id);
-  }, [deleteNaver]);
+    handleCloseProfileModal();
+  }, [deleteNaver, handleCloseProfileModal]);
 
   const handleEditNaver = useCallback(() => {
     history.push(`/edit/${id}`);
